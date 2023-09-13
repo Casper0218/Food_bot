@@ -6,7 +6,11 @@ from django.conf import settings
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextSendMessage
- 
+
+from .Clicker import *
+from .onegoogle import *
+# from .scraper import IFoodie
+
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
  
@@ -20,6 +24,9 @@ def callback(request):
  
         try:
             events = parser.parse(body, signature)  # 傳入的事件
+
+            print(events) #印出來看看
+
         except InvalidSignatureError:
             return HttpResponseForbidden()
         except LineBotApiError:
@@ -27,6 +34,14 @@ def callback(request):
  
         for event in events:
             if isinstance(event, MessageEvent):  # 如果有訊息事件
+
+                
+                #印出訊息來看看
+                print(event.message.text)
+                print(f'type= {type(event.message.text)}')
+
+                current_url = clicker(event.message.text)
+                tmd(current_url)
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
                     TextSendMessage(text=event.message.text)
