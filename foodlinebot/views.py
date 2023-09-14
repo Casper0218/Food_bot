@@ -9,6 +9,7 @@ from linebot.models import MessageEvent, TextSendMessage
 
 from .Clicker import *
 from .onegoogle import *
+from .gotourl import *
 # from .scraper import IFoodie
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
@@ -41,6 +42,7 @@ def callback(request):
                 print(f'type= {type(event.message.text)}')
 
                 current_url = clicker(event.message.text)
+                #tmd(gotourl(current_url))
                 tmd(current_url)
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
