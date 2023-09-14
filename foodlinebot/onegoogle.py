@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from .gotourl import *
 
 def tmd(storeurl):
 
@@ -29,7 +30,8 @@ def tmd(storeurl):
     url=storeurl
     driver.get(url)
     #print('goto website')
-
+    Current_url=driver.current_url
+    driver.get(gotourl(Current_url))
     # Wait for the page to load (adjust the waiting time as needed)
     #time.sleep(5)
     scrolltimes=0
@@ -116,10 +118,12 @@ def tmd(storeurl):
     # 取出包含留言的List 。
     conlist = soup[2]
 
-    print('最多一次能下載',len(conlist), '則評論')
+    #print('最多一次能下載',len(conlist), '則評論')
+    RES='下載了 '+str(len(conlist))+' 則評論'
     comment=[]
     for i in conlist:
         comment+=[i[3]]
 
-    # df=pd.DataFrame(comment,columns=['comment'])
-    # df.to_csv('store.csv')
+    df=pd.DataFrame(comment,columns=['comment'])
+    df.to_csv('store.csv')
+    return RES

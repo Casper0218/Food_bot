@@ -1,3 +1,12 @@
+def httpfilter(STR):
+    #count=1
+    for i in STR.split('\n'):
+        #print(count)
+        if re.search('http',i):
+            return i
+            break
+        #count+=1
+
 def wwp2(word):
     temp=''
     count=1

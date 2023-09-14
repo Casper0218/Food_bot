@@ -40,13 +40,40 @@ def callback(request):
                 #印出訊息來看看
                 print(event.message.text)
                 print(f'type= {type(event.message.text)}')
+                
 
-                current_url = clicker(event.message.text)
-                tmd(gotourl(current_url))  #gotourl 程式辨識店家首頁並跳轉評論頁
-                #tmd(current_url) #需捲動首頁並點選更多評論
+                ####處理來自Google Map的商家分享資料解析#########
+                data = event.message.text
+
+                # # 使用換行符分割資料
+                # parts = data.split('\n')
+
+                # # 分割後的部分包含商家名稱、地址、電話號碼和 Google 地圖連結
+                # store_name = parts[0]
+                # address = parts[1]
+                # phone_number = parts[2]
+                # google_maps_link = parts[3]
+
+                # print("商家名稱:", store_name)
+                # print("地址:", address)
+                # print("電話號碼:", phone_number)
+                # print("Google 地圖連結:", google_maps_link)
+                # ###############################################
+
+                #current_url = clicker(store_name)  #參數改過
+                #current_url = google_maps_link #跳過 Clicker()
+                current_url = httpfilter(data)
+
+                if current_url:
+                    RES=tmd(current_url)
+                else:
+                    RES='訊息裡沒有連結，正在嘗試搜尋 Google 地圖...'
+                    try:
+                        current_url=clicker(data)
+                        RES=tmd(current_url)
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
-                    TextSendMessage(text=event.message.text)
+                    TextSendMessage(text=RES)
                 )
         return HttpResponse()
     else:
