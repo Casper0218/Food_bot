@@ -42,8 +42,8 @@ def callback(request):
                 print(f'type= {type(event.message.text)}')
 
                 current_url = clicker(event.message.text)
-                #tmd(gotourl(current_url))
-                tmd(current_url)
+                tmd(gotourl(current_url))  #gotourl 程式辨識店家首頁並跳轉評論頁
+                #tmd(current_url) #需捲動首頁並點選更多評論
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
                     TextSendMessage(text=event.message.text)
