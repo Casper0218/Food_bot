@@ -33,9 +33,9 @@ def gotourl(url):
             head=head+'!'+wwp2(url_split[i])
         else:
             head=head+'!'+url_split[i]
-    print(urllist[0][urlsplit_no])
-    print(urllist[1][urlsplit_no][0])
-    print(urllist[1][urlsplit_no][1])
+    #print(urllist[0][urlsplit_no])
+    #print(urllist[1][urlsplit_no][0])
+    #print(urllist[1][urlsplit_no][1])
     return head
 #call: gotourl('https://...!..!..!')
 #return: 'https://...!..!..!'
