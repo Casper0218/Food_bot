@@ -35,13 +35,11 @@ def callback(request):
  
         for event in events:
             if isinstance(event, MessageEvent):  # 如果有訊息事件
-
-                
+               
                 #印出訊息來看看
                 print(event.message.text)
                 print(f'type= {type(event.message.text)}')
                 
-
                 ####處理來自Google Map的商家分享資料解析#########
                 data = event.message.text
 

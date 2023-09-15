@@ -7,27 +7,31 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from .gotourl import *
 
-def tmd(storeurl):
+def tmd(url):
 
     # Define the XPath
     xpath = '//*[@id="QA0Szd"]/div/div/div[1]/div[2]/div/div[1]/div/div/div[2]'
 
     # Configure the WebDriver with proxy settings and run it in headless mode
     chrome_options = webdriver.ChromeOptions()
+
+    ######uncomment when deploy to Linux Ubuntu 22
     #chrome_options.add_argument('--headless')  # Run headless browser
     #chrome_options.add_argument('--no-sandbox')  # Required for Linux servers
     #chrome_options.add_argument('--disable-dev-shm-usage')  # Required for Linux servers
     #service = Service(executable_path=ChromeDriverManager().install())
+    ######uncomment whe deploy to Linux Ubuntu 22
+    
     # Initialize the WebDriver with selenium-wire
     #print('Opening chrome')
-    driver = webdriver.Chrome(#service=service,#executable_path='/path/to/chromedriver', 
+    driver = webdriver.Chrome(#service=service,       #executable_path='/path/to/chromedriver', 
         options=chrome_options
         )  # Replace with the actual path
 
     # Open a webpage
     #start = time.time()
     #url = 'https://www.google.com/maps/place/%E8%B6%85%E5%90%89%E9%A3%AF%E6%A1%B6-%E5%B7%A5%E5%AD%B8%E5%BA%97/@24.1171034,120.6569651,17z/data=!4m8!3m7!1s0x34693c50d802033b:0xd54cd319a0c199b8!8m2!3d24.1171034!4d120.65954!9m1!1b1!16s%2Fg%2F11xlgm6bn?entry=ttu'  # Replace with the target website URL
-    url=storeurl
+    #url=storeurl
     driver.get(url)
     #print('goto website')
     Current_url=driver.current_url
@@ -74,8 +78,6 @@ def tmd(storeurl):
     #end = time.time()
     #print(end - start)
 
-
-
     #引入函式庫
     import requests
     import json
@@ -89,13 +91,13 @@ def tmd(storeurl):
         "http": "47.243.17.210:8088"
     }
 
-    good=goodurl.split('2i10')
+    good=goodurl.split('2i103e1')
     # 超連結 幾個 url 各代表不同的評論條。
     #url = 'https://www.google.com/maps/preview/review/listentitiesreviews?authuser=0&hl=zh-TW&gl=tw&pb=!1m2!1y3765758546651144975!2y6093113884180453713!2m1!2i10!3e1!4m5!3b1!4b1!6b1!7b1!20b1!5m2!1sJPLxZPmPEITx-Qa51rWQAg!7e81'
     # 誠品 站前店 共有 4821 則評論
     #prefix = 'https://www.google.com/maps/preview/review/listentitiesreviews?authuser=0&hl=zh-TW&gl=tw&pb=!1m2!1y3765758546651144975!2y6093113884180453713!2m1!'
     prefix=good[0]
-    number = '2i200'
+    number = '2i2003e2'
     #suffix = '!3e2!4m5!3b1!4b1!6b1!7b1!20b1!5m2!1sJPLxZPmPEITx-Qa51rWQAg!7e81'
     suffix=good[1]
     #url = 'https://www.google.com/maps/preview/review/listentitiesreviews?authuser=0&hl=zh-TW&gl=tw&pb=!1m2!1y3765758546651144975!2y6093113884180453713!2m1!2i100!3e1!4m5!3b1!4b1!6b1!7b1!20b1!5m2!1sJPLxZPmPEITx-Qa51rWQAg!7e81'
