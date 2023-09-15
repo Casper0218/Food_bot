@@ -1,5 +1,5 @@
 import re
-import time
+#import time
 from seleniumwire import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys

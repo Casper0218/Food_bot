@@ -69,6 +69,8 @@ def callback(request):
                     try:
                         current_url=clicker(data)
                         RES=tmd(current_url)
+                    except:
+                        break
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
                     TextSendMessage(text=RES)
