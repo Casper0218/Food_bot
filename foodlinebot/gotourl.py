@@ -1,3 +1,4 @@
+import re
 def httpfilter(STR):
     #count=1
     for i in STR.split('\n'):

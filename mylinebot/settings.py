@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-2xsbusd=v6fgxi!cxey0l6t69jrp+k8nzp_)5ntn$(62m48llf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '2a0b-140-120-43-251.ngrok-free.app', '286f-140-120-43-177.ngrok-free.app']
+ALLOWED_HOSTS = ['127.0.0.1',
+                 '2a0b-140-120-43-251.ngrok-free.app',
+                 '286f-140-120-43-177.ngrok-free.app',
+                 '1f56-114-35-78-77.ngrok-free.app',]
 
 
 # Application definition
@@ -124,7 +127,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-LINE_CHANNEL_ACCESS_TOKEN = 'SOBdijHaAd1QA+qBMLbPA/AQfnOKPt5mYKV8HROZ3VFZyBcQnWEiOuxCpiIBdPBYIDi+llpBIwCoN/PyIW2K3xoAInOvnmcD/L5yhlvGO9M2MoBPq8yzRUv2qpg8EpCx4yH4pGvxAVm7HeXKlNQidQdB04t89/1O/w1cDnyilFU='
+#LINE_CHANNEL_ACCESS_TOKEN = 'SOBdijHaAd1QA+qBMLbPA/AQfnOKPt5mYKV8HROZ3VFZyBcQnWEiOuxCpiIBdPBYIDi+llpBIwCoN/PyIW2K3xoAInOvnmcD/L5yhlvGO9M2MoBPq8yzRUv2qpg8EpCx4yH4pGvxAVm7HeXKlNQidQdB04t89/1O/w1cDnyilFU='
  
-LINE_CHANNEL_SECRET = 'a9b53981dd2eca85a6998dfda6586e4c'
+#LINE_CHANNEL_SECRET = 'a9b53981dd2eca85a6998dfda6586e4c'
 
+from .line_bot_config import *
