@@ -1,5 +1,5 @@
 import re
-#import time
+import time
 from seleniumwire import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -14,6 +14,8 @@ def tmd(url):
 
     # Configure the WebDriver with proxy settings and run it in headless mode
     chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('start-maximized')
+    chrome_options.add_argument("--window-size=1920,1080")
 
     ######uncomment when deploy to Linux Ubuntu 22
     #chrome_options.add_argument('--headless')  # Run headless browser
@@ -27,7 +29,9 @@ def tmd(url):
     driver = webdriver.Chrome(#service=service,       #executable_path='/path/to/chromedriver', 
         options=chrome_options
         )  # Replace with the actual path
-
+    #driver.maximize_window()
+    #driver.set_window_size(1920, 1080)
+    print(driver.get_window_size())
     # Open a webpage
     #start = time.time()
     #url = 'https://www.google.com/maps/place/%E8%B6%85%E5%90%89%E9%A3%AF%E6%A1%B6-%E5%B7%A5%E5%AD%B8%E5%BA%97/@24.1171034,120.6569651,17z/data=!4m8!3m7!1s0x34693c50d802033b:0xd54cd319a0c199b8!8m2!3d24.1171034!4d120.65954!9m1!1b1!16s%2Fg%2F11xlgm6bn?entry=ttu'  # Replace with the target website URL
@@ -37,7 +41,7 @@ def tmd(url):
     Current_url=driver.current_url
     driver.get(gotourl(Current_url))
     # Wait for the page to load (adjust the waiting time as needed)
-    #time.sleep(5)
+    time.sleep(2)
     scrolltimes=0
     #print(scrolltimes)
     gotit=False
@@ -91,13 +95,13 @@ def tmd(url):
         "http": "47.243.17.210:8088"
     }
 
-    good=goodurl.split('2i103e1')
+    good=goodurl.split('2i10!3e1')
     # 超連結 幾個 url 各代表不同的評論條。
     #url = 'https://www.google.com/maps/preview/review/listentitiesreviews?authuser=0&hl=zh-TW&gl=tw&pb=!1m2!1y3765758546651144975!2y6093113884180453713!2m1!2i10!3e1!4m5!3b1!4b1!6b1!7b1!20b1!5m2!1sJPLxZPmPEITx-Qa51rWQAg!7e81'
     # 誠品 站前店 共有 4821 則評論
     #prefix = 'https://www.google.com/maps/preview/review/listentitiesreviews?authuser=0&hl=zh-TW&gl=tw&pb=!1m2!1y3765758546651144975!2y6093113884180453713!2m1!'
     prefix=good[0]
-    number = '2i2003e2'
+    number = '2i200!3e2'
     #suffix = '!3e2!4m5!3b1!4b1!6b1!7b1!20b1!5m2!1sJPLxZPmPEITx-Qa51rWQAg!7e81'
     suffix=good[1]
     #url = 'https://www.google.com/maps/preview/review/listentitiesreviews?authuser=0&hl=zh-TW&gl=tw&pb=!1m2!1y3765758546651144975!2y6093113884180453713!2m1!2i100!3e1!4m5!3b1!4b1!6b1!7b1!20b1!5m2!1sJPLxZPmPEITx-Qa51rWQAg!7e81'
@@ -127,5 +131,5 @@ def tmd(url):
         comment+=[i[3]]
 
     df=pd.DataFrame(comment,columns=['comment'])
-    df.to_csv('store.csv')
-    return RES
+    #df.to_csv('store.csv')
+    return RES, df

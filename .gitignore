@@ -143,3 +143,15 @@ static/*
 !static/css
 !static/js
 !static/img
+
+# csv for test
+*.csv
+
+# Do not track line token file
+line_bot_config.py
+
+# ChromeDriver
+chromedriver.exe
+
+#emacs tmp file
+*~

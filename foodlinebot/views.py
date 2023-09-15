@@ -10,6 +10,7 @@ from linebot.models import MessageEvent, TextSendMessage
 from .Clicker import *
 from .onegoogle import *
 from .gotourl import *
+from .model import *
 # from .scraper import IFoodie
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
@@ -63,17 +64,18 @@ def callback(request):
                 current_url = httpfilter(data)
 
                 if current_url:
-                    RES=tmd(current_url)
+                    RES,df=tmd(current_url)
                 else:
-                    RES='訊息裡沒有連結，正在嘗試搜尋 Google 地圖...'
+                    RES='訊息裡沒有連結，Google 地圖也搜尋不到該商家的資訊'
                     try:
                         current_url=clicker(data)
-                        RES=tmd(current_url)
+                        RES,df=tmd(current_url)
                     except:
                         break
+                score = model(df)
                 line_bot_api.reply_message(  # 回復傳入的訊息文字
                     event.reply_token,
-                    TextSendMessage(text=RES)
+                    TextSendMessage(text=f'{RES}, 綜合評分為 {score*10:.1f} 分')
                 )
         return HttpResponse()
     else:
