@@ -29,11 +29,11 @@ This manual is for [我們的專題] version [我不知道第幾版].
    3. Setting Webhook URL on your 'Messaging API settings' page.
       Webhook URL: =https://[Your.Server.Link]/foodlinebot/callback=
    4. Create a file =line_bot_config.py= which contains:
-      #+BEGIN_SRC python
+      ```python
         # Put this file in 'mylinebot' project folder
         LINE_CHANNEL_ACCESS_TOKEN="[Copy your 'channel access token' here]"
         LINE_CHANNEL_SECRET="[Copy your 'channel secret' here]"
-      #+END_SRC
+      ```
 3. A specifc version of chromedriver.exe was needed to match the
    version of Google Chrome on your system.
 4. 
