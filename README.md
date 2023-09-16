@@ -27,8 +27,8 @@ This manual is for [我們的專題] version [我不知道第幾版].
    2. LINE Channel access token (You can find it on 'Messaging API
       settings' in your LINE developer console.)
    3. Setting Webhook URL on your 'Messaging API settings' page.
-      Webhook URL: =https://[Your.Server.Link]/foodlinebot/callback=
-   4. Create a file =line_bot_config.py= which contains:
+      Webhook URL: `https://[Your.Server.Link]/foodlinebot/callback`
+   4. Create a file `line_bot_config.py` which contains:
       ```python
         # Put this file in 'mylinebot' project folder
         LINE_CHANNEL_ACCESS_TOKEN="[Copy your 'channel access token' here]"
@@ -36,7 +36,14 @@ This manual is for [我們的專題] version [我不知道第幾版].
       ```
 3. A specifc version of chromedriver.exe was needed to match the
    version of Google Chrome on your system.
-4. 
+4. After clone this project, you need download the model file
+   `best_model.pth` from this link:
+   https://drive.google.com/file/d/1CI8k02VDCZHxhzl74kT4-sF9Tj2PIg9R/view?usp=sharing
+   , and put this file in `Food_bot` folder.
+5. Using command line prompt to install dependencies.
+   ```bash
+   pip install -r "requirements.txt"
+   ```
 ## Related Works
 
 ## Proposed Design
