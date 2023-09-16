@@ -10,7 +10,11 @@ from linebot.models import MessageEvent, TextSendMessage
 from .Clicker import *
 from .onegoogle import *
 from .gotourl import *
+<<<<<<< HEAD
 from .test import *
+=======
+from .model import *
+>>>>>>> 8475b7749b1936ed72147880db0ecbd38cc755c3
 # from .scraper import IFoodie
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)

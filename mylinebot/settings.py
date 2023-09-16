@@ -131,4 +131,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
  
 #LINE_CHANNEL_SECRET = 'a9b53981dd2eca85a6998dfda6586e4c'
 
+<<<<<<< HEAD
 from .line_bot_config import *
+=======
+from .line_bot_config.py import *
+>>>>>>> 8475b7749b1936ed72147880db0ecbd38cc755c3
