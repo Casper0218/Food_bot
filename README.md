@@ -39,25 +39,12 @@ This manual is for [我們的專題] version [我不知道第幾版].
 4. After clone this project, you need download the model file
    `best_model.pth` from this link:
    https://drive.google.com/file/d/1CI8k02VDCZHxhzl74kT4-sF9Tj2PIg9R/view?usp=sharing
-   , and put this file in `Food_bot` folder.
+   , and save this file in `Food_bot` folder.
 5. Using command line prompt to install dependencies.
    ```bash
    pip install -r "requirements.txt"
    ```
-## Related Works
-
-## Proposed Design
-
-## Experiment
-
-## Conclusion
-
-# Food_bot
-
-## Introduction
-### Summary
-### Installation
-
+6. Save `line_bot_config.py` (step 2.4) in subfolder `mylinebot`.
 ## Related Works
 
 ## Proposed Design
