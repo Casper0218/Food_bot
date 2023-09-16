@@ -1,18 +1,11 @@
 import torch
 from transformers import BertTokenizer, BertForSequenceClassification
 import pandas as pd
-<<<<<<< HEAD
-import os
+#import os
 
 def model(other_data):
     # 指定模型和權重路徑
     model_path = "best_model.pth"
-=======
-
-def model(other_data):
-    # 指定模型和權重路徑
-    model_path = "./best_model.pth"
->>>>>>> 8475b7749b1936ed72147880db0ecbd38cc755c3
 
     # 初始化 Bert tokenizer
     tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
@@ -21,10 +14,7 @@ def model(other_data):
     model = BertForSequenceClassification.from_pretrained('bert-base-chinese')
 
     # 載入你的權重
-<<<<<<< HEAD
-    print(os.getcwd())
-=======
->>>>>>> 8475b7749b1936ed72147880db0ecbd38cc755c3
+    #print(os.getcwd())
     model.load_state_dict(torch.load(model_path))
 
     # 將模型移動到 GPU，如果 GPU 可用的話
