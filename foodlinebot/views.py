@@ -11,15 +11,19 @@ from .Clicker import *
 from .onegoogle import *
 from .gotourl import *
 from .test import *
+from linebot.models import *
 # from .scraper import IFoodie
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
  
- 
+# 在 views.py 的顶部定义全局变量 df
+df = None
+
+
 @csrf_exempt
 def callback(request):
- 
+    global df  # 使用全局变量 df
     if request.method == 'POST':
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body = request.body.decode('utf-8')
@@ -73,10 +77,37 @@ def callback(request):
                     except:
                         break
                 score = model(df)
-                line_bot_api.reply_message(  # 回復傳入的訊息文字
-                    event.reply_token,
-                    TextSendMessage(text=f'{RES}, 綜合評分為 {score*10:.1f} 分')
-                )
+                # 调用 choose_sticker 函数并将其返回的消息对象添加到 messages 列表
+                messages = [choose_sticker(score, RES), TextSendMessage(text=f'{RES}, 綜合評分為 {score*10:.1f} 分')]
+
+                line_bot_api.reply_message(event.reply_token, messages)
+
         return HttpResponse()
     else:
         return HttpResponseBadRequest()
+
+
+
+
+from linebot.models import StickerMessage, TextSendMessage
+
+def choose_sticker(score, RES):
+    if score > 0.5:  # 假設 0.5 是最高評分
+        return StickerMessage(
+            package_id='446',  # 第一組貼圖包 ID，根據你的需求更改
+            sticker_id='1992'   # 第一組貼圖 ID，根據你的需求更改
+        )
+    elif score == 0.5:  # 假設 0.5 是中等評分
+        return StickerMessage(
+            package_id='789',  # 第二組貼圖包 ID，根據你的需求更改
+            sticker_id='10877'   # 第二組貼圖 ID，根據你的需求更改
+        )
+    else:  # 如果分數低於 0.5，包括所有其他情況
+        return StickerMessage(
+            package_id='6632',  # 第三組貼圖包 ID，根據你的需求更改
+            sticker_id='11825394'   # 第三組貼圖 ID，根據你的需求更改
+        )
+
+
+
+
