@@ -45,6 +45,8 @@ This manual is for [我們的專題] version [我不知道第幾版].
    pip install -r "requirements.txt"
    ```
 6. Save `line_bot_config.py` (step 2.4) in subfolder `mylinebot`.
+7. Make sure your server domain name is in `ALLOWED_HOST` list in
+   `mylinebot/settings.py`.
 ## Related Works
 
 ## Proposed Design
