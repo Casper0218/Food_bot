@@ -152,10 +152,7 @@ line_bot_config.py
 
 # ChromeDriver
 chromedriver.exe
-<<<<<<< HEAD
 best_model.pth
-=======
->>>>>>> 8475b7749b1936ed72147880db0ecbd38cc755c3
 
 #emacs tmp file
 *~
