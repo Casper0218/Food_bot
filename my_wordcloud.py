@@ -6,7 +6,7 @@ import re
 from collections import Counter
 
 # 讀取CSV文件
-df = pd.read_csv('茶六公益店100則評論.csv', encoding='utf-8')
+df = pd.read_csv('結果.csv', encoding='utf-8')
 
 # 將'comment'列的內容合併為一個字符串
 comments = df['comment'].str.cat(sep=' ')
@@ -35,14 +35,15 @@ wordcloud = WordCloud(
 plt.figure(figsize=(10, 5))
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
-plt.show()
+#plt.show()
+plt.savefig('文字雲.png')
 
 # 創建一個字詞計數器
-word_counter = Counter(filtered_word_str)
+#word_counter = Counter(filtered_word_str)
 
 # 取出出現次數最多的前10個字詞和它們的出現次數
-top_10_words = word_counter.most_common(10)
+#top_10_words = word_counter.most_common(10)
 
 # 打印結果
-for word, count in top_10_words:
-    print(f'{word}: {count}')
+#for word, count in top_10_words:
+#    print(f'{word}: {count}')
