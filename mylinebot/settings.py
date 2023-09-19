@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1',
                  'casual-apt-husky.ngrok-free.app',
                  '286f-140-120-43-177.ngrok-free.app',
-                 'bd27-140-120-43-177.ngrok-free.app',]
+                 '5d45-140-120-43-177.ngrok-free.app',]
 
 
 # Application definition
