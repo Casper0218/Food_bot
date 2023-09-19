@@ -14,9 +14,8 @@ comments = df['comment'].str.cat(sep=' ')
 # 使用jieba分詞對文本進行分詞處理
 word_list = jieba.cut(comments)
 
-# 過濾停用詞
-stop_words = ['的', '了', '是', '在', '我', '你', '也', '都', '或', '跟', '所以', '但', '而且','有','很','吃','人','不']  # 請替換成您的停用詞列表
-filtered_words = [word for word in word_list if word not in stop_words]
+# 過濾單一個字的詞語
+filtered_words = [word for word in word_list if len(word) > 1]
 
 # 將過濾後的分詞結果轉為空格分隔的字符串
 filtered_word_str = ' '.join(filtered_words)
