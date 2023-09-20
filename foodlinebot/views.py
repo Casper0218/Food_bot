@@ -5,13 +5,14 @@ from django.conf import settings
  
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
-from linebot.models import MessageEvent, TextSendMessage
+#from linebot.models import MessageEvent, TextSendMessage
 
 from .Clicker import *
 from .onegoogle import *
 from .gotourl import *
 from .test import *
 from linebot.models import *
+from .my_wordcloud import my_wordcloud
 # from .scraper import IFoodie
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
@@ -77,6 +78,7 @@ def callback(request):
                     except:
                         break
                 score = model(df)
+                my_wordcloud(df)
                 # 调用 choose_sticker 函数并将其返回的消息对象添加到 messages 列表
                 messages = [choose_sticker(score, RES), TextSendMessage(text=f'{RES}, 綜合評分為 {score*10:.1f} 分')]
 
