@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1',
                  'casual-apt-husky.ngrok-free.app',
                  '286f-140-120-43-177.ngrok-free.app',
-                 '1f56-114-35-78-77.ngrok-free.app',]
+                 '5d45-140-120-43-177.ngrok-free.app',]
 
 
 # Application definition
@@ -127,6 +127,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-LINE_CHANNEL_ACCESS_TOKEN = 't06oDxsvCjPNkhql4qRJVGPAiy7nPDdQUvXTdgoixUV7ma8+rMa14LL9LC6n11K2WUeBV6Eh1yLRpaAYMEPbgVwmLiijw2xfbBgBWeL3eCfC0OBg6DIZ0MHyA4b+HdFpH6r5OWB89P90qyiOWl2ETgdB04t89/1O/w1cDnyilFU='
+#LINE_CHANNEL_ACCESS_TOKEN = 't06oDxsvCjPNkhql4qRJVGPAiy7nPDdQUvXTdgoixUV7ma8+rMa14LL9LC6n11K2WUeBV6Eh1yLRpaAYMEPbgVwmLiijw2xfbBgBWeL3eCfC0OBg6DIZ0MHyA4b+HdFpH6r5OWB89P90qyiOWl2ETgdB04t89/1O/w1cDnyilFU='
  
-LINE_CHANNEL_SECRET = '5a7fada5ee010610e328b5241c5e1357'
+#LINE_CHANNEL_SECRET = '5a7fada5ee010610e328b5241c5e1357'
+
+from .line_bot_config import *

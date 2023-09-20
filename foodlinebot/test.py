@@ -66,8 +66,8 @@ def model(other_data):
     other_data['predicted_prob_positive'] = predicted_probabilities[:, 1].cpu().numpy()
     
     # 保存結果到 CSV 文件，編碼為 'utf-8-sig'，包含 BOM，並忽略編碼錯誤
-    #result_csv_file = '結果.csv'
-    #other_data.to_csv(result_csv_file, index=False, encoding='utf-8-sig')
+    result_csv_file = '結果.csv'
+    other_data.to_csv(result_csv_file, index=False, encoding='utf-8-sig')
     
-    #print(f"結果已保存到 {result_csv_file}，編碼為 'utf-8-sig'")
+    print(f"結果已保存到 {result_csv_file}，編碼為 'utf-8-sig'")
     return predicted_probabilities[:, 1].cpu().numpy().mean()
