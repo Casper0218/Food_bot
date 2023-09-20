@@ -94,12 +94,12 @@ def callback(request):
 from linebot.models import StickerMessage, TextSendMessage
 
 def choose_sticker(score, RES):
-    if score > 0.65:  # 假設 0.65 是最高評分
+    if score > 0.6:  # 假設 0.65 是最高評分
         return StickerMessage(
             package_id='446',  # 第一組貼圖包 ID，根據你的需求更改
             sticker_id='1992'   # 第一組貼圖 ID，根據你的需求更改
         )
-    elif score <0.35:  # 如果分數低於 0.35，包括所有其他情況
+    elif score <0.4:  # 如果分數低於 0.35，包括所有其他情況
         return StickerMessage(
             package_id='6632',  # 第三組貼圖包 ID，根據你的需求更改
             sticker_id='11825394'   # 第三組貼圖 ID，根據你的需求更改
@@ -110,6 +110,3 @@ def choose_sticker(score, RES):
             sticker_id='10877'   # 第二組貼圖 ID，根據你的需求更改
         )
     
-
-
-
