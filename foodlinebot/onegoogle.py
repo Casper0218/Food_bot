@@ -18,15 +18,15 @@ def tmd(url):
     chrome_options.add_argument("--window-size=1920,1080")
 
     ######uncomment when deploy to Linux Ubuntu 22
-    #chrome_options.add_argument('--headless')  # Run headless browser
-    #chrome_options.add_argument('--no-sandbox')  # Required for Linux servers
-    #chrome_options.add_argument('--disable-dev-shm-usage')  # Required for Linux servers
-    #service = Service(executable_path=ChromeDriverManager().install())
+    chrome_options.add_argument('--headless')  # Run headless browser
+    chrome_options.add_argument('--no-sandbox')  # Required for Linux servers
+    chrome_options.add_argument('--disable-dev-shm-usage')  # Required for Linux servers
+    service = Service(executable_path=ChromeDriverManager().install())
     ######uncomment whe deploy to Linux Ubuntu 22
     
     # Initialize the WebDriver with selenium-wire
     #print('Opening chrome')
-    driver = webdriver.Chrome(#service=service,       #executable_path='/path/to/chromedriver', 
+    driver = webdriver.Chrome(service=service,       #executable_path='/path/to/chromedriver', 
         options=chrome_options
         )  # Replace with the actual path
     #driver.maximize_window()
