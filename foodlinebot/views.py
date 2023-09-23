@@ -79,7 +79,8 @@ def callback(request):
                     except:
                         break
                 score = model(df)
-                my_wordcloud(df)
+                star=df[['star']].values.mean()
+                my_wordcloud(df, score, star)
 
                 #文字雲
                 from django.conf import settings

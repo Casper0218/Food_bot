@@ -127,7 +127,7 @@ def tmd(url):
     #print('最多一次能下載',len(conlist), '則評論')
     RES='下載了 '+str(len(conlist))+' 則評論'
     commentgoogle=[]
-    comment=[]
+    #comment=[]
     for i in conlist:
         commentgoogle+=[i[3:5]]
 #        comment+=[i[3]]
