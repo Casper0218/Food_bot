@@ -24,7 +24,7 @@ This manual is for [我們的專題] version [我不知道第幾版].
    ```bash
    conda create -n [your_env_name] python==3.8
    ```
-2. Create a LINE Developers Messaging API:
+2. Create a [LINE Developers](https://developers.line.biz/zh-hant/) Messaging API:
    1. LINE Channel seret (You can find it on 'Basic settings' in your
       LINE Developers console.)
    2. LINE Channel access token (You can find it on 'Messaging API
@@ -89,7 +89,7 @@ This manual is for [我們的專題] version [我不知道第幾版].
    ```bash
    conda create -n [your_env_name] python==3.8
    ```
-2. 申請 LINE Developers 的 Messaging API 頻道並且:
+2. 申請 [LINE Developers](https://developers.line.biz/zh-hant/) 的 Messaging API 頻道並且:
    1. 取得 LINE Channel seret (你可以在你的 LINE Developers console 中
       的 'Basic settings' 頁面裡找到)
    2. LINE Channel access token (你可以在你的 LINE Developers console

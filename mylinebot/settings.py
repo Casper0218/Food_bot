@@ -132,3 +132,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #LINE_CHANNEL_SECRET = '5a7fada5ee010610e328b5241c5e1357'
 
 from .line_bot_config import *
+
+#WOrdCloud Image
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
