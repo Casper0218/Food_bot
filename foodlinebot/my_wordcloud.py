@@ -34,10 +34,11 @@ def my_wordcloud(df):
 
     # 顯示文字雲
     plt.figure(figsize=(10, 5))
-    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.imshow(wordcloud, #interpolation='bilinear'
+               )
     plt.axis('off')
     #plt.show()
-    plt.savefig('文字雲.png')
+    plt.savefig('media/文字雲.png')
 
 # 創建一個字詞計數器
 #word_counter = Counter(filtered_word_str)

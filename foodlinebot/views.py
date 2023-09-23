@@ -13,6 +13,7 @@ from .gotourl import *
 from .test import *
 from linebot.models import *
 from .my_wordcloud import my_wordcloud
+from mylinebot.line_bot_config import domainname
 # from .scraper import IFoodie
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
@@ -87,12 +88,12 @@ def callback(request):
                 # 生成圖片的路徑（相對於MEDIA_ROOT）
                 image_path = '文字雲.png'
                 image_message = ImageSendMessage(
-                    original_content_url='https://fe08-140-120-43-177.ngrok-free.app/media/%E6%96%87%E5%AD%97%E9%9B%B2.png',
-                    preview_image_url='https://fe08-140-120-43-177.ngrok-free.app/media/%E6%96%87%E5%AD%97%E9%9B%B2.png'
+                    original_content_url='https://'+domainname+'/media/%E6%96%87%E5%AD%97%E9%9B%B2.png',
+                    preview_image_url='https://'+domainname+'/media/%E6%96%87%E5%AD%97%E9%9B%B2.png'
                     )
 
                 # 调用 choose_sticker 函数并将其返回的消息对象添加到 messages 列表
-                messages = [choose_sticker(score, RES), TextSendMessage(text=f'{RES}, 綜合評分為 {score*10:.1f} 分'), image_message]
+                messages = [choose_sticker(score, RES), TextSendMessage(text=f'{RES}, 綜合評分為 {score*5:.1f} 分'), image_message]
 
                 # 完整的圖片URL
                 image_url = os.path.join(settings.MEDIA_URL, image_path)
