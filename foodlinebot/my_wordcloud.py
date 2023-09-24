@@ -64,8 +64,10 @@ def my_wordcloud(df, score, star):
     from PIL import Image
 
     # Open the two input PNG files
-    image1 = Image.open(smilepath)
-    image2 = Image.open(wordcloudpath)
+    #image1 = Image.open(smilepath)
+    #image2 = Image.open(wordcloudpath)
+    image1 = Image.open(wordcloudpath)
+    image2 = Image.open(smilepath)
 
     # Get the dimensions of the first image
     width1, height1 = image1.size
@@ -74,8 +76,10 @@ def my_wordcloud(df, score, star):
     width2, height2 = image2.size
 
     # Calculate the total width and height for the combined image
-    total_width = width1 + width2
-    max_height = max(height1, height2)
+    #total_width = width1 + width2
+    #max_height = max(height1, height2)
+    total_width = max(width1, width2)
+    max_height = height1 + height2
 
     # Create a new blank image with the calculated dimensions
     combined_image = Image.new('RGB', (total_width, max_height))
@@ -84,8 +88,8 @@ def my_wordcloud(df, score, star):
     combined_image.paste(image1, (0, 0))
 
     # Paste the second image next to the first image
-    combined_image.paste(image2, (width1, 0))
-
+    #combined_image.paste(image2, (width1, 0))
+    combined_image.paste(image2, (0, height1))
     # Save the combined image as a new PNG file
     combined_image.save('media/文字雲.png')
 
