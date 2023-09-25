@@ -98,14 +98,14 @@ This manual is for [我們的專題] version [我不知道第幾版].
       Webhook URL: `https://[Your.Server.Link]/foodlinebot/callback`
    4. 新增檔名為 `line_bot_config.py` 的檔案，檔案裡寫入下列內容:
        ```python
-	    # Put this file in 'mylinebot' project folder
-	    from .settings import ALLOWED_HOSTS
-	    LINE_CHANNEL_ACCESS_TOKEN="[Copy your 'channel access token' here]"
-	    LINE_CHANNEL_SECRET="[Copy your 'channel secret' here]"
-	    domainname='Your.Server.Link'
+       # Put this file in 'mylinebot' project folder
+       from .settings import ALLOWED_HOSTS
+       LINE_CHANNEL_ACCESS_TOKEN="[Copy your 'channel access token' here]"
+       LINE_CHANNEL_SECRET="[Copy your 'channel secret' here]"
+       domainname='Your.Server.Link'
        ALLOWED_HOSTS += [domainname]
-	    ```
-	  請確認主機連結位址在單引號內。
+       ```
+       請確認主機連結位址在單引號內。
 3. 需要有與主機裡 Google Chrome 版本相應的 chromedriver.exe。
 4. 從 Git 下載此專案後，你還需要從這個 Googlr drive 連結
    https://drive.google.com/file/d/1CI8k02VDCZHxhzl74kT4-sF9Tj2PIg9R/view?usp=sharing
