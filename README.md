@@ -107,8 +107,7 @@ This manual is for [我們的專題] version [我不知道第幾版].
 	    ```
 	  請確認主機連結位址在單引號內。
 3. 需要有與主機裡 Google Chrome 版本相應的 chromedriver.exe。
-4. After clone this project, you need download the model file 從 Git
-   下載此專案後，你還需要從這個 Googlr drive 連結
+4. 從 Git 下載此專案後，你還需要從這個 Googlr drive 連結
    https://drive.google.com/file/d/1CI8k02VDCZHxhzl74kT4-sF9Tj2PIg9R/view?usp=sharing
    額外下載`best_model.pth`，並儲存在專案資料夾 `Food_bot` 中。
 5. 使用命令提示字元或其它指令式的 shell 中，移動工作目錄到 `Food_bot` 下，並輸入下面的指令來下載相依套件:
