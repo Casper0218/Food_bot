@@ -1,6 +1,6 @@
 # Food_bot
 
-This manual is for [我們的專題] version [我不知道第幾版].
+This manual is for [Google商家評論語意分析機器人] version [1.0].
 
    Copyright © 2023 AI人工智慧與數據分析班 第二組
 
